@@ -57,7 +57,7 @@ class Woocommerce_Advanced_Shipping_Validation {
 	 *
 	 * @since 1.0.0
 	 */
-	public function __construct( ) {
+	public function __construct() {
 
 		// Check if WooCommerce is active
 		if ( ! function_exists( 'is_plugin_active_for_network' ) ) :
@@ -65,13 +65,13 @@ class Woocommerce_Advanced_Shipping_Validation {
 		endif;
 
 		if ( ! in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) :
-			if (!is_plugin_active_for_network( 'woocommerce/woocommerce.php' ) ) :
+			if ( ! is_plugin_active_for_network( 'woocommerce/woocommerce.php' ) ) :
 				return;
 			endif;
 		endif;
 
 		// Initialize plugin parts
-		$this->init( );
+		$this->init();
 
 		do_action( 'woocommerce_advanced_shipping_validation_init' );
 
