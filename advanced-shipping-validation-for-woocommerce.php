@@ -191,6 +191,5 @@ if ( ! function_exists( 'Woocommerce_Advanced_Shipping_Validation' ) ) :
 
 	}
 
-
 endif;
 Woocommerce_Advanced_Shipping_Validation();
