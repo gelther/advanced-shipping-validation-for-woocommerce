@@ -20,7 +20,6 @@ class WCASV_Match_Conditions {
 	 * @since 1.0.0
 	 */
 	public function __construct() {
-
 		add_filter( 'woocommerce_advanced_shipping_validation_match_condition_subtotal', array( $this, 'match_condition_subtotal' ), 10, 5 );
 		add_filter( 'woocommerce_advanced_shipping_validation_match_condition_shipping_cost', array( $this, 'match_condition_shipping_cost' ), 10, 5 );
 		add_filter( 'woocommerce_advanced_shipping_validation_match_condition_shipping_method', array( $this, 'match_condition_shipping_method' ), 10, 5 );
@@ -64,7 +63,6 @@ class WCASV_Match_Conditions {
 	 * @return  BOOL                    Matching result, TRUE if results match, otherwise FALSE.
 	 */
 	public function match_condition_subtotal( $match, $operator, $value, $package, $package_index ) {
-
 		if ( ! isset( WC()->cart ) ) :
 			return $match;
 		endif;
@@ -104,7 +102,6 @@ class WCASV_Match_Conditions {
 	 * @return  BOOL                    Matching result, TRUE if results match, otherwise FALSE.
 	 */
 	public function match_condition_shipping_cost( $match, $operator, $value, $package, $package_index ) {
-
 		$chosen_shipping_methods = WC()->session->get( 'chosen_shipping_methods' );
 		$chosen_shipping_method  = isset( $chosen_shipping_methods[ $package_index ] ) ? $chosen_shipping_methods[ $package_index ] : null;
 		$package                 = WC()->shipping->calculate_shipping_for_package( $package );
@@ -142,7 +139,6 @@ class WCASV_Match_Conditions {
 	 * @return  BOOL                    Matching result, TRUE if results match, otherwise FALSE.
 	 */
 	public function match_condition_shipping_method( $match, $operator, $value, $package, $package_index ) {
-
 		$chosen_shipping_methods = WC()->session->get( 'chosen_shipping_methods' );
 		$chosen_shipping_method  = isset( $chosen_shipping_methods[ $package_index ] ) ? $chosen_shipping_methods[ $package_index ] : null;
 
@@ -172,7 +168,6 @@ class WCASV_Match_Conditions {
 	 * @return  BOOL                    Matching result, TRUE if results match, otherwise FALSE.
 	 */
 	public function match_condition_payment_gateway( $match, $operator, $value, $package, $package_index ) {
-
 		$selected_payment_method = WC()->session->get( 'chosen_payment_method' );
 
 		if ( '==' == $operator ) :
@@ -201,7 +196,6 @@ class WCASV_Match_Conditions {
 	 * @return  BOOL                    Matching result, TRUE if results match, otherwise FALSE.
 	 */
 	public function match_condition_subtotal_ex_tax( $match, $operator, $value, $package, $package_index ) {
-
 		if ( ! isset( WC()->cart ) ) :
 			return $match;
 		endif;
@@ -239,7 +233,6 @@ class WCASV_Match_Conditions {
 	 * @return  BOOL                    Matching result, TRUE if results match, otherwise FALSE.
 	 */
 	public function match_condition_tax( $match, $operator, $value, $package, $package_index ) {
-
 		if ( ! isset( WC()->cart ) ) :
 			return $match;
 		endif;
@@ -277,7 +270,6 @@ class WCASV_Match_Conditions {
 	 * @return  BOOL                    Matching result, TRUE if results match, otherwise FALSE.
 	 */
 	public function match_condition_quantity( $match, $operator, $value, $package, $package_index ) {
-
 		if ( ! isset( WC()->cart ) ) :
 			return $match;
 		endif;
@@ -317,7 +309,6 @@ class WCASV_Match_Conditions {
 	 * @return  BOOL                    Matching result, TRUE if results match, otherwise FALSE.
 	 */
 	public function match_condition_contains_product( $match, $operator, $value, $package, $package_index ) {
-
 		if ( ! isset( WC()->cart ) || empty( WC()->cart->cart_contents ) ) :
 			return $match;
 		endif;
@@ -352,7 +343,6 @@ class WCASV_Match_Conditions {
 	 * @return  BOOL                    Matching result, TRUE if results match, otherwise FALSE.
 	 */
 	public function match_condition_coupon( $match, $operator, $value, $package, $package_index ) {
-
 		if ( ! isset( WC()->cart ) ) :
 			return $match;
 		endif;
@@ -383,7 +373,6 @@ class WCASV_Match_Conditions {
 	 * @return  BOOL                    Matching result, TRUE if results match, otherwise FALSE.
 	 */
 	public function match_condition_weight( $match, $operator, $value, $package, $package_index ) {
-
 		if ( ! isset( WC()->cart ) ) :
 			return $match;
 		endif;
@@ -428,7 +417,6 @@ class WCASV_Match_Conditions {
 	 * @return  BOOL                    Matching result, TRUE if results match, otherwise FALSE.
 	 */
 	public function match_condition_contains_shipping_class( $match, $operator, $value, $package, $package_index ) {
-
 		if ( ! isset( WC()->cart ) ) :
 			return $match;
 		endif;
@@ -481,7 +469,6 @@ class WCASV_Match_Conditions {
 	 * @return  BOOL                    Matching result, TRUE if results match, otherwise FALSE.
 	 */
 	public function match_condition_zipcode( $match, $operator, $value, $package, $package_index ) {
-
 		$customer_zipcode = $package['destination']['postcode'];
 
 		$zipcodes = (array) explode( ',', $value );
@@ -558,7 +545,6 @@ class WCASV_Match_Conditions {
 	 * @return  BOOL                    Matching result, TRUE if results match, otherwise FALSE.
 	 */
 	public function match_condition_city( $match, $operator, $value, $package, $package_index ) {
-
 		if ( ! isset( WC()->customer ) ) :
 			return $match;
 		endif;
@@ -601,7 +587,6 @@ class WCASV_Match_Conditions {
 	 * @return  BOOL                    Matching result, TRUE if results match, otherwise FALSE.
 	 */
 	public function match_condition_state( $match, $operator, $value, $package, $package_index ) {
-
 		if ( ! isset( WC()->customer ) ) :
 			return $match;
 		endif;
@@ -634,7 +619,6 @@ class WCASV_Match_Conditions {
 	 * @return  BOOL                    Matching result, TRUE if results match, otherwise FALSE.
 	 */
 	public function match_condition_country( $match, $operator, $value, $package, $package_index ) {
-
 		if ( ! isset( WC()->customer ) ) :
 			return $match;
 		endif;
@@ -665,7 +649,6 @@ class WCASV_Match_Conditions {
 	 * @return  BOOL                    Matching result, TRUE if results match, otherwise FALSE.
 	 */
 	public function match_condition_role( $match, $operator, $value, $package, $package_index ) {
-
 		global $current_user;
 
 		if ( '==' == $operator ) :
@@ -699,7 +682,6 @@ class WCASV_Match_Conditions {
 	 * @return  BOOL                    Matching result, TRUE if results match, otherwise FALSE.
 	 */
 	public function match_condition_width( $match, $operator, $value, $package, $package_index ) {
-
 		if ( ! isset( WC()->cart ) || empty( WC()->cart->cart_contents ) ) :
 			return $match;
 		endif;
@@ -746,7 +728,6 @@ class WCASV_Match_Conditions {
 	 * @return  BOOL                    Matching result, TRUE if results match, otherwise FALSE.
 	 */
 	public function match_condition_height( $match, $operator, $value, $package, $package_index ) {
-
 		if ( ! isset( WC()->cart ) || empty( WC()->cart->cart_contents ) ) :
 			return $match;
 		endif;
@@ -793,7 +774,6 @@ class WCASV_Match_Conditions {
 	 * @return  BOOL                    Matching result, TRUE if results match, otherwise FALSE.
 	 */
 	public function match_condition_length( $match, $operator, $value, $package, $package_index ) {
-
 		if ( ! isset( WC()->cart ) || empty( WC()->cart->cart_contents ) ) :
 			return $match;
 		endif;
@@ -840,7 +820,6 @@ class WCASV_Match_Conditions {
 	 * @return  BOOL                    Matching result, TRUE if results match, otherwise FALSE.
 	 */
 	public function match_condition_stock( $match, $operator, $value, $package, $package_index ) {
-
 		if ( ! isset( WC()->cart ) || empty( WC()->cart->cart_contents ) ) :
 			return $match;
 		endif;
@@ -889,7 +868,6 @@ class WCASV_Match_Conditions {
 	 * @return  BOOL                    Matching result, TRUE if results match, otherwise FALSE.
 	 */
 	public function match_condition_stock_status( $match, $operator, $value, $package, $package_index ) {
-
 		if ( ! isset( WC()->cart ) ) :
 			return $match;
 		endif;
@@ -935,7 +913,6 @@ class WCASV_Match_Conditions {
 	 * @return  BOOL                    Matching result, TRUE if results match, otherwise FALSE.
 	 */
 	public function match_condition_contains_category( $match, $operator, $value, $package, $package_index ) {
-
 		if ( ! isset( WC()->cart ) ) :
 			return $match;
 		endif;
