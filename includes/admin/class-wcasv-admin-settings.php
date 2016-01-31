@@ -30,7 +30,6 @@ class WCASV_Admin_Settings {
 	 * @since 1.0.0
 	 */
 	public function init() {
-
 		// Save settings page
 		add_action( 'woocommerce_update_options_shipping_validation', array( $this, 'update_options' ) );
 
@@ -57,7 +56,6 @@ class WCASV_Admin_Settings {
 	 * @since 1.0.0
 	 */
 	public function get_settings() {
-
 		$settings = apply_filters( 'woocommerce_advanced_shipping_validation_settings', array(
 
 			array(
@@ -126,7 +124,6 @@ class WCASV_Admin_Settings {
 	 * @return  array             List of modified shipping sections.
 	 */
 	public function add_shipping_section( $sections ) {
-
 		$sections['shipping_validation'] = __( 'Validation rules', 'woocommerce-advanced-shipping-validation' );
 
 		return $sections;
@@ -144,7 +141,6 @@ class WCASV_Admin_Settings {
 	 * @param  string  $current_section  Slug of the current section
 	 */
 	public function shipping_validation_section_settings( $current_section ) {
-
 		global $current_section;
 
 		if ( 'shipping_validation' !== $current_section ) :
