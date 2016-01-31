@@ -13,7 +13,6 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  * @param  string  $current_value  Current operator value.
  */
 function wcasv_condition_operator( $id, $group = 0, $current_value = '==' ) {
-
 	$operators = array(
 		'==' => __( 'Equal to', 'woocommerce-advanced-shipping-validation' ),
 		'!=' => __( 'Not equal to', 'woocommerce-advanced-shipping-validation' ),
