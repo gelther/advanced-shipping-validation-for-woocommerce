@@ -65,7 +65,6 @@ class WCASV_Condition {
 	 * @since 1.0.0
 	 */
 	public function __construct( $id = null, $group = 0, $condition = null, $operator = null, $value = null ) {
-
 		$this->id        = $id;
 		$this->group     = $group;
 		$this->condition = $condition;
@@ -89,7 +88,6 @@ class WCASV_Condition {
 	 * @since 1.0.0
 	 */
 	public function wcasv_create_object() {
-
 		?><div class='wcasv-condition-wrap'><?php
 
 			do_action( 'woocommerce_Advanced_Shipping_Validation_before_condition', $this );
@@ -118,7 +116,6 @@ class WCASV_Condition {
 	 * @since 1.0.0
 	 */
 	public function condition_conditions() {
-
 		wcasv_condition_conditions( $this->id, $this->group, $this->condition );
 
 	}
@@ -132,7 +129,6 @@ class WCASV_Condition {
 	 * @since 1.0.0
 	 */
 	public function condition_operator() {
-
 		wcasv_condition_operator( $this->id, $this->group, $this->operator );
 
 	}
@@ -146,7 +142,6 @@ class WCASV_Condition {
 	 * @since 1.0.0
 	 */
 	public function condition_values() {
-
 		wcasv_condition_values( $this->id, $this->group, $this->condition, $this->value );
 
 	}
@@ -160,7 +155,6 @@ class WCASV_Condition {
 	 * @since 1.0.0
 	 */
 	public function add_condition_button() {
-
 		?>
 		<a class='button condition-add' data-group='<?php echo absint( $this->group ); ?>' href='javascript:void(0);'>+</a>
 		<?php
@@ -176,7 +170,6 @@ class WCASV_Condition {
 	 * @since 1.0.0
 	 */
 	public function remove_condition_button() {
-
 		?>
 		<a class='button condition-delete' href='javascript:void(0);'>-</a>
 		<?php
@@ -192,7 +185,6 @@ class WCASV_Condition {
 	 * @since 1.0.0
 	 */
 	public function condition_description() {
-
 		wcasv_condition_description( $this->condition );
 
 	}
