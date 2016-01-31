@@ -30,7 +30,6 @@ class WCASV_Admin {
 	 * @since 1.0.0
 	 */
 	public function init() {
-
 		// Add to WC Screen IDs to load scripts.
 		add_filter( 'woocommerce_screen_ids', array( $this, 'add_wcasv_screen_ids' ) );
 
@@ -64,7 +63,6 @@ class WCASV_Admin {
 	 * @return  array               List of modified screen IDs.
 	 */
 	public function add_wcasv_screen_ids( $screen_ids ) {
-
 		$screen_ids[] = 'shipping_validation';
 
 		return $screen_ids;
@@ -80,7 +78,6 @@ class WCASV_Admin {
 	 * @since 1.0.0
 	 */
 	public function admin_enqueue_scripts() {
-
 		// Only load scripts on relevant pages
 		if (
 			( isset( $_REQUEST['post'] ) && 'shipping_validation' == get_post_type( $_REQUEST['post'] ) ) ||
@@ -113,7 +110,6 @@ class WCASV_Admin {
 	 * @since 1.0.0
 	 */
 	public function menu_highlight() {
-
 		global $parent_file, $submenu_file, $post_type;
 
 		if ( 'shipping_validation' == $post_type ) :
@@ -137,7 +133,6 @@ class WCASV_Admin {
 	 * @return  array           List of modified links.
 	 */
 	public function add_plugin_action_links( $links, $file ) {
-
 		if ( $file == plugin_basename( Woocommerce_Advanced_Shipping_Validation()->file ) ) :
 			$links = array_merge( array(
 				'<a href="' . esc_url( admin_url( 'admin.php?page=wc-settings&tab=shipping&section=shipping_validation' ) ) . '">' . __( 'Settings', 'woocommerce-advanced-shipping-validation' ) . '</a>'

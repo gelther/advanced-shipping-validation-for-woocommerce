@@ -21,7 +21,6 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  * @return  array  List of 'shipping_validation' post IDs.
  */
 function wcasv_get_validation_posts() {
-
 	$fee_query = new WP_Query( array(
 		'post_type'      => 'shipping_validation',
 		'post_status'    => 'publish',
@@ -49,7 +48,6 @@ function wcasv_get_validation_posts() {
  * @return  BOOL                      TRUE if all the conditions in one of the condition groups matches true.
  */
 function wcasv_match_conditions( $condition_groups = array(), $package, $package_index ) {
-
 	if ( empty( $condition_groups ) || ! is_array( $condition_groups ) ) :
 		return false;
 	endif;
@@ -89,7 +87,6 @@ function wcasv_match_conditions( $condition_groups = array(), $package, $package
  * @since 1.0.0
  */
 function wcasv_add_checkout_validation_messages() {
-
 	// Check if validation is enabled
 	if ( 'yes' !== get_option( 'enable_woocommerce_advanced_shipping_validation', 'yes' ) ) :
 		return;

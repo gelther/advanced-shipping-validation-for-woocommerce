@@ -22,7 +22,6 @@ class WCASV_Ajax {
 	 * @since 1.0.0
 	 */
 	public function __construct() {
-
 		// Add elements
 		add_action( 'wp_ajax_wcasv_add_condition', array( $this, 'wcasv_add_condition' ) );
 		add_action( 'wp_ajax_wcasv_add_condition_group', array( $this, 'wcasv_add_condition_group' ) );
@@ -45,7 +44,6 @@ class WCASV_Ajax {
 	 * @since 1.0.0
 	 */
 	public function wcasv_add_condition() {
-
 		check_ajax_referer( 'wcasv-ajax-nonce', 'nonce' );
 
 		new WCASV_Condition( null, $_POST['group'] );
@@ -62,7 +60,6 @@ class WCASV_Ajax {
 	 * @since 1.0.0
 	 */
 	public function wcasv_add_condition_group() {
-
 		check_ajax_referer( 'wcasv-ajax-nonce', 'nonce' );
 
 		?><div class='condition-group condition-group-<?php echo $_POST['group']; ?>' data-group='<?php echo $_POST['group']; ?>'>
@@ -88,7 +85,6 @@ class WCASV_Ajax {
 	 * @since 1.0.0
 	 */
 	public function wcasv_update_condition_value() {
-
 		check_ajax_referer( 'wcasv-ajax-nonce', 'nonce' );
 
 		wcasv_condition_values( $_POST['id'], $_POST['group'], $_POST['condition'] );
@@ -105,7 +101,6 @@ class WCASV_Ajax {
 	 * @since 1.0.0
 	 */
 	public function wcasv_update_condition_description() {
-
 		check_ajax_referer( 'wcasv-ajax-nonce', 'nonce' );
 
 		wcasv_condition_description( $_POST['condition'] );
@@ -122,7 +117,6 @@ class WCASV_Ajax {
 	 * @since 1.0.0
 	 */
 	public function save_fee_order() {
-
 		global $wpdb;
 
 		check_ajax_referer( 'wcasv-ajax-nonce', 'nonce' );

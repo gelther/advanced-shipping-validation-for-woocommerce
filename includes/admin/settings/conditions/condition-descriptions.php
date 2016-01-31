@@ -11,7 +11,6 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  * @param  string  $condition  Current condition to display the description for.
  */
 function wcasv_condition_description( $condition ) {
-
 	$descriptions = array(
 		'shipping_cost'           => __( 'Shipping cost is based on the shipping package cost (taxes not counted)', 'woocommerce-advanced-shipping-validation' ),
 		'state'                   => __( 'States must be installed in WC', 'woocommerce-advanced-shipping-validation' ),

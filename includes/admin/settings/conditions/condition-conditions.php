@@ -13,7 +13,6 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  * @param  string  $current_value  Current condition value.
  */
 function wcasv_condition_conditions( $id, $group = 0, $current_value = 'subtotal' ) {
-
 	$conditions = array(
 		__( 'Cart', 'woocommerce-advanced-shipping-validation' ) => array(
 			'subtotal'                => __( 'Subtotal', 'woocommerce-advanced-shipping-validation' ),

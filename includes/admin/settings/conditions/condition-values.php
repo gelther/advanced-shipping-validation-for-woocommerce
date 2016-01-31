@@ -14,7 +14,6 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  * @param  string  $current_value  Current condition value.
  */
 function wcasv_condition_values( $id, $group = 0, $condition = 'subtotal', $current_value = '' ) {
-
 	// Defaults
 	$values = array( 'placeholder' => '', 'min' => '', 'max' => '', 'field' => 'text', 'options' => array(), 'class' => '' );
 
