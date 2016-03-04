@@ -20,7 +20,9 @@ class WCASV_Admin {
 	 * @since 1.0.0
 	 */
 	public function __construct() {
+
 		add_action( 'admin_init', array( $this, 'init' ) );
+
 	}
 
 
@@ -60,8 +62,8 @@ class WCASV_Admin {
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param   array  $screen_ids  List of existing screen IDs.
-	 * @return  array               List of modified screen IDs.
+	 * @param  array $screen_ids List of existing screen IDs.
+	 * @return array             List of modified screen IDs.
 	 */
 	public function add_wcasv_screen_ids( $screen_ids ) {
 
@@ -132,9 +134,9 @@ class WCASV_Admin {
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param   array   $links  List of existing links.
-	 * @param   string  $file   Name of the current plugin being looped.
-	 * @return  array           List of modified links.
+	 * @param  array  $links List of existing links.
+	 * @param  string $file  Name of the current plugin being looped.
+	 * @return array         List of modified links.
 	 */
 	public function add_plugin_action_links( $links, $file ) {
 
