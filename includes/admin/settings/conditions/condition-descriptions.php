@@ -8,7 +8,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  *
  * @since 1.0.0
  *
- * @param  string  $condition  Current condition to display the description for.
+ * @param string $condition Current condition to display the description for.
  */
 function wcasv_condition_description( $condition ) {
 
