@@ -146,8 +146,10 @@ class WCASV_Post_Type {
 	 * @since 1.0.0
 	 */
 	public function render_conditions() {
+
 		// Conditions meta box
 		require_once plugin_dir_path( __FILE__ ) . 'admin/views/html-meta-box-conditions.php';
+
 	}
 
 
@@ -159,8 +161,10 @@ class WCASV_Post_Type {
 	 * @since 1.0.0
 	 */
 	public function render_settings() {
+
 		// Settings meta box
 		require_once plugin_dir_path( __FILE__ ) . 'admin/views/html-meta-box-settings.php';
+
 	}
 
 
