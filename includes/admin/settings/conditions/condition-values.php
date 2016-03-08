@@ -8,10 +8,10 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  *
  * @since 1.0.0
  *
- * @param  mixed   $id             ID of the current condition.
- * @param  mixed   $group          Group the condition belongs to.
- * @param  string  $condition      Condition.
- * @param  string  $current_value  Current condition value.
+ * @param mixed  $id            ID of the current condition.
+ * @param mixed  $group         Group the condition belongs to.
+ * @param string $condition     Condition.
+ * @param string $current_value Current condition value.
  */
 function wcasv_condition_values( $id, $group = 0, $condition = 'subtotal', $current_value = '' ) {
 
@@ -38,7 +38,7 @@ function wcasv_condition_values( $id, $group = 0, $condition = 'subtotal', $curr
 			// WooCommerce Advanced Shipping support
 			$was_rates = get_posts( array( 'fields' => 'ids', 'post_type' => 'was', 'post_status' => 'any', 'posts_per_page' => 10000 ) );
 			foreach ( $was_rates as $was_id ) :
-				$shipping_method = get_post_meta( $was_id, '_was_shipping_method', true );
+				$shipping_method              = get_post_meta( $was_id, '_was_shipping_method', true );
 				$values['options'][ $was_id ] = isset( $shipping_method['shipping_title'] ) ? $shipping_method['shipping_title'] : 'WooCommerce Advanced Shipping rate ID ' . $was_id;
 			endforeach;
 			break;
@@ -65,7 +65,7 @@ function wcasv_condition_values( $id, $group = 0, $condition = 'subtotal', $curr
 
 		case 'contains_product' :
 			$values['field'] = 'select';
-			$products = get_posts( array( 'posts_per_page' => '-1', 'post_type' => 'product', 'order' => 'asc', 'orderby' => 'title' ) );
+			$products        = get_posts( array( 'posts_per_page' => '-1', 'post_type' => 'product', 'order' => 'asc', 'orderby' => 'title' ) );
 			foreach ( $products as $product ) :
 				$values['options'][ $product->ID ] = $product->post_title;
 			endforeach;
@@ -81,8 +81,8 @@ function wcasv_condition_values( $id, $group = 0, $condition = 'subtotal', $curr
 			break;
 
 		case 'contains_shipping_class' :
-			$values['field'] 			= 'select';
-			$values['options']['-1'] 	= __( 'No shipping class', 'woocommerce' );
+			$values['field']         = 'select';
+			$values['options']['-1'] = __( 'No shipping class', 'woocommerce' );
 
 			// Get all shipping classes
 			foreach ( get_terms( 'product_shipping_class', array( 'hide_empty' => false ) ) as $shipping_class ) :
@@ -122,15 +122,15 @@ function wcasv_condition_values( $id, $group = 0, $condition = 'subtotal', $curr
 			break;
 
 		case 'country' :
-			$values['field'] 	= 'select';
-			$values['options'] 	= WC()->countries->get_allowed_countries();
+			$values['field']   = 'select';
+			$values['options'] = WC()->countries->get_allowed_countries();
 
 			break;
 
 		case 'role' :
 
-			$values['field'] = 'select';
-			$roles = array_keys( get_editable_roles() );
+			$values['field']   = 'select';
+			$roles             = array_keys( get_editable_roles() );
 			$values['options'] = array_combine( $roles, $roles );
 
 			break;
@@ -157,7 +157,7 @@ function wcasv_condition_values( $id, $group = 0, $condition = 'subtotal', $curr
 
 		case 'stock_status' :
 
-			$values['field'] = 'select';
+			$values['field']   = 'select';
 			$values['options'] = array(
 				'instock'    => __( 'In stock', 'woocommerce' ),
 				'outofstock' => __( 'Out of stock', 'woocommerce' ),
