@@ -20,7 +20,9 @@ class WCASV_Admin_Settings {
 	 * @since 1.0.0
 	 */
 	public function __construct() {
+
 		add_action( 'admin_init', array( $this, 'init' ), 20 );
+
 	}
 
 
@@ -98,7 +100,9 @@ class WCASV_Admin_Settings {
 	 * @since 1.0.0
 	 */
 	public function update_options() {
+
 		WC_Admin_Settings::save_fields( $this->get_settings() );
+
 	}
 
 
@@ -107,11 +111,13 @@ class WCASV_Admin_Settings {
 	 *
 	 * Load and render table as a field type.
 	 *
-	 * @return  string
+	 * @return string
 	 */
 	public function generate_table_field() {
+
 		// Overview table
 		require_once plugin_dir_path( __FILE__ ) . 'views/html-overview-table.php';
+
 	}
 
 
@@ -122,8 +128,8 @@ class WCASV_Admin_Settings {
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param   array  $sections  List of existing shipping sections.
-	 * @return  array             List of modified shipping sections.
+	 * @param  array $sections List of existing shipping sections.
+	 * @return array           List of modified shipping sections.
 	 */
 	public function add_shipping_section( $sections ) {
 
@@ -141,7 +147,7 @@ class WCASV_Admin_Settings {
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param  string  $current_section  Slug of the current section
+	 * @param string $current_section Slug of the current section
 	 */
 	public function shipping_validation_section_settings( $current_section ) {
 
