@@ -20,7 +20,9 @@ class WCASV_Admin_Settings {
 	 * @since 1.0.0
 	 */
 	public function __construct() {
+
 		add_action( 'admin_init', array( $this, 'init' ), 20 );
+
 	}
 
 
@@ -98,7 +100,9 @@ class WCASV_Admin_Settings {
 	 * @since 1.0.0
 	 */
 	public function update_options() {
+
 		WC_Admin_Settings::save_fields( $this->get_settings() );
+
 	}
 
 
@@ -110,8 +114,10 @@ class WCASV_Admin_Settings {
 	 * @return  string
 	 */
 	public function generate_table_field() {
+
 		// Overview table
 		require_once plugin_dir_path( __FILE__ ) . 'views/html-overview-table.php';
+
 	}
 
 
