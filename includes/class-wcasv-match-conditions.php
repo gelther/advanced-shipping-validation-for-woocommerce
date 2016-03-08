@@ -568,7 +568,7 @@ class WCASV_Match_Conditions {
 			if ( preg_match( '/\, ?/', $value ) ) :
 				$match = ( in_array( WC()->customer->get_shipping_city(), explode( ',', $value ) ) );
 			else :
-				$match = ( preg_match( '/^' . preg_quote( $value, '/' ) . "$/i", WC()->customer->get_shipping_city() ) );
+				$match = ( preg_match( '/^' . preg_quote( $value, '/' ) . '$/i', WC()->customer->get_shipping_city() ) );
 			endif;
 
 		elseif ( '!=' == $operator ) :
@@ -576,7 +576,7 @@ class WCASV_Match_Conditions {
 			if ( preg_match( '/\, ?/', $value ) ) :
 				$match = ( ! in_array( WC()->customer->get_shipping_city(), explode( ',', $value ) ) );
 			else :
-				$match = ( ! preg_match( '/^' . preg_quote( $value, '/' ) . "$/i", WC()->customer->get_shipping_city() ) );
+				$match = ( ! preg_match( '/^' . preg_quote( $value, '/' ) . '$/i', WC()->customer->get_shipping_city() ) );
 			endif;
 
 		endif;
@@ -640,9 +640,9 @@ class WCASV_Match_Conditions {
 		endif;
 
 		if ( '==' == $operator ) :
-			$match = ( preg_match( '/^' . preg_quote( $value, '/' ) . "$/i", WC()->customer->get_shipping_country() ) );
+			$match = ( preg_match( '/^' . preg_quote( $value, '/' ) . '$/i', WC()->customer->get_shipping_country() ) );
 		elseif ( '!=' == $operator ) :
-			$match = ( ! preg_match( '/^' . preg_quote( $value, '/' ) . "$/i", WC()->customer->get_shipping_country() ) );
+			$match = ( ! preg_match( '/^' . preg_quote( $value, '/' ) . '$/i', WC()->customer->get_shipping_country() ) );
 		endif;
 
 		return $match;
